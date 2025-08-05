@@ -1,80 +1,51 @@
 ---
 layout: page
-title: project 5
-description: a project with a background image
-img: assets/img/1.jpg
+title: Clustering Value Systems and Worldviews
+description: Unsupervised learning using different clustering and dimensionality reduction methods to analyse the results of a questionnaire about values and worldviews.
+img: assets/img/clustering.png
 importance: 3
-category: fun
+category: individual
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+# Context
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+* Many sociological theories suggest that people can be divided into distinct groups based on their values and beliefs about the world. 
+* The theories disagree on the number and characteristics of the subsets.
+* Clustering can be a good way of finding an appropriate number of subsets of people and understanding the properties of these subsets.
+* Aim: to find the subsets of people who share the same values and beliefs to improve policy making.
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
+## Dataset Reference
+
+* **source**: https://www.worldvaluessurvey.org/WVSDocumentationWV7.jsp download "WVS Cross-National Wave 7 csv v6 0.zip"
+* **authors**: Haerpfer, C., Inglehart, R., Moreno, A., Welzel, C., Kizilova, K., Diez-Medrano J., M. Lagos, P. Norris, E. Ponarin & B. Puranen
+* **license**: 
+    * "These data files are available without restrictions, provided: <br>
+    a) that they are used for non-profit purposes; <br>
+    b) correct citations are provided and sent to the World Values Survey Association for each publication of results based in part or entirely on these data files; <br>
+    c) the data files themselves are not redistributed; <br>
+    d) proper citation to the WVS data is included into the references list of the publication (citation format available for downloading in the Documentation section)."
+* **purpose**: "The WVS seeks to help scientists and policy makers understand changes in the beliefs, values and motivations of people throughout the world."
+
+## Dataset Suitability
+
+* The survey is designed to assess the social, political, economic, religious and cultural values of people around the world.
+* Claims to be the largest non-commercial academic social survey programme.
+* Converts values into scales and includes the results of the derived values. 
+
+
+# The Project
+> Note: Below is only part of the implementation. The whole code with all classes and functions can be found in [this repository](https://github.com/lartmann/Clustering-Value-Systems-and-Worldviews).
+
+{::nomarkdown}
+<div style="background-color: white; color: black; padding: 1em; border-radius: 8px;">
+{% assign jupyter_path = "assets/jupyter/analysis.ipynb" | relative_url %}
+{% capture notebook_exists %}{% file_exists assets/jupyter/analysis.ipynb %}{% endcapture %}
+{% if notebook_exists == "true" %}
+{% jupyter_notebook jupyter_path %}
+{% else %}
+
+<p>Sorry, the notebook you are looking for does not exist.</p>
+{% endif %}
 </div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
-
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
-
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
-
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
-
-{% raw %}
-
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
-
-{% endraw %}
+{:/nomarkdown}
